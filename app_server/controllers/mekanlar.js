@@ -1,10 +1,10 @@
 const anaSayfa = function(req, res, next) {
   res.render('mekanlar-liste',
     { title : 'Anasayfa',
+      'footer' : 'Faruk Zeren 2020',
       'sayfaBaslik' : {
         'siteAd' : 'Mekan 32',
-        'aciklama' : 'Isparta civarındaki mekanları keşfedin!',
-        'footer' : 'Faruk Zeren 2020'
+        'aciklama' : 'Isparta civarındaki mekanları keşfedin!'
       },
       'mekanlar' : [
         {
@@ -107,7 +107,7 @@ const mekanBilgisi = function(req, res, next) {
 const yorumEkle = function(req, res, next) {
   res.render('yorum-ekle', 
     { 
-      title: 'Yorum Ekle',
+      title : 'Yorum Ekle',
       'footer' : 'Faruk Zeren 2020'
     }
   );
