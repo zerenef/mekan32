@@ -1,5 +1,13 @@
 extends layout
-
 block content
-  h1= title
-  p #{title}
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1= title
+  .row
+    figure
+      img.img-responsive.img-rounded(src='/images/dashboard.png' style='width:1180px;')
+  .container
+    footer
+      .col-12
+        small &copy; #{footer}
