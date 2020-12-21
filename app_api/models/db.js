@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 var dbURI = 'mongodb://localhost/mekan32';
-mongoose.connect(dbURI, {
-  useNewUrlParser: true
-});
+//var dbURI = 'mongodb+srv://mekan32:mekan32@mekan32.1rthf.mongodb.net/mekan32?retryWrites=true&w=majority'
+mongoose.connect(dbURI, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', function () {
   console.log('Mongoose ' + dbURI + ' adresindeki veritabanına bağlandı\n');
@@ -15,12 +14,12 @@ mongoose.connection.on('error', function (err) {
 
 //Bağlantı kesildiğinde konsola kesilme bilgisini yaz.
 mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose bağlantısı kesildi\n');
+  console.log('\nMongoose bağlantısı kesildi');
 });
 
 kapat = function (msg, callback) {
   mongoose.connection.close(function () {
-    console.log('Mongoose kapatıldı\n ' + msg);
+    console.log('Mongoose kapatıldı\n' + msg);
     callback();
   });
 };
