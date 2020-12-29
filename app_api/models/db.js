@@ -1,10 +1,15 @@
 var mongoose = require('mongoose');
 //var dbURI = 'mongodb://localhost/mekan32';
 var dbURI = 'mongodb+srv://mekan32:mekan32@mekan32.1rthf.mongodb.net/mekan32?retryWrites=true&w=majority'
-mongoose.connect(dbURI, { useNewUrlParser: true });
+mongoose.connect(dbURI, { 
+  useNewUrlParser: true, 
+  useFindAndModify: false, 
+  useCreateIndex: true,
+  useUnifiedTopology: true
+});
 
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose ' + dbURI + ' adresindeki veritabanına bağlandı\n');
+  console.log('Mongoose ' + dbURI + ' adresindeki veritabanına bağlandı');
 });
 
 //Bağlantı hatası olduğunda konsola hata bilgisini yazdırır
