@@ -9,7 +9,8 @@ mongoose.connect(dbURI, {
 });
 
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose ' + dbURI + ' adresindeki veritabanına bağlandı');
+  //console.log('Mongoose ' + dbURI + ' adresindeki veritabanına bağlandı');
+  console.log('Mongoose veritabanına bağlandı');
 });
 
 //Bağlantı hatası olduğunda konsola hata bilgisini yazdırır
