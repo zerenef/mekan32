@@ -2,7 +2,8 @@ var request = require('postman-request');
 var footer = 'Faruk Zeren 2021'
 
 var apiSecenekleri = {
-  sunucu : 'http://farukzeren1711012276.herokuapp.com',
+  //sunucu : 'http://farukzeren1711012276.herokuapp.com',
+  sunucu : 'http://localhost:3000',
   apiYolu : '/api/mekanlar/'
 };
 
@@ -88,7 +89,7 @@ var hataGoster = function(req, res, durum) {
     baslik = '404, Sayfa Bulunamadı!'
     icerik = 'Aradığınız sayfayı bulamadık!'
   } else {
-    baslik = durum + 'Bir şeyler ters gitti!'
+    baslik = durum + ' Bir şeyler ters gitti!'
     icerik = 'Ters giden bir şey var!'
   }
 
@@ -109,15 +110,15 @@ var mekanBilgisiGetir = function(req, res, callback) {
 
   request(istekSecenekleri, function(hata, cevap, mekanDetaylari) {
     var gelenMekan = mekanDetaylari;
-    if (!hata) {
+    if (cevap.statusCode != 200) {
+      hataGoster(req, res, cevap.statusCode);
+    } else {
       // enlem ve boylam bir dizi şeklinde geliyor, bunu ayır
       gelenMekan.koordinatlar = {
         enlem: mekanDetaylari.koordinatlar[0],
         boylam: mekanDetaylari.koordinatlar[1]
       };
       callback(req, res, gelenMekan);
-    } else {
-      hataGoster(req, res, cevap.statusCode);
     }
   });
 }
