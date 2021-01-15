@@ -2,8 +2,8 @@ var request = require('postman-request');
 var footer = 'Faruk Zeren 2021'
 
 var apiSecenekleri = {
-  //sunucu : 'http://farukzeren1711012276.herokuapp.com',
-  sunucu : 'http://localhost:3000',
+  sunucu : 'http://farukzeren1711012276.herokuapp.com',
+  //sunucu : 'http://localhost:3000',
   apiYolu : '/api/mekanlar/'
 };
 
